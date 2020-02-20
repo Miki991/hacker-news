@@ -8,12 +8,12 @@ const Footer = () => {
             <p className='text-center mb-0'>
                 Created with 
                 <img 
-                    src="/assets/img/heart.png"
+                    src="assets/img/heart.png"
                     alt='Heart'
                     className='heart-icon' />
                 and <i>React.js</i>
                 <img 
-                    src='/assets/img/react.png' 
+                    src='assets/img/react.png' 
                     alt='React Logo'
                     className='react-icon' />
             </p>

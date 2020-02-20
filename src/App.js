@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { initialState, reducer } from './reducer';
 
 import ErrorPage from './pages/ErrorPage/ErrorPage';
@@ -34,7 +34,7 @@ const App = () => {
   },[])
 
   return (
-    <Router>
+    <HashRouter basename='hacker-news'>
       <Store.Provider value={{store: store, dispatch: dispatch}}>
         <div className="App">
           <Switch>
@@ -46,8 +46,8 @@ const App = () => {
           <TopArrow />
         </div>
       </Store.Provider>
-    </Router>
+    </HashRouter>
   );
-}
+} 
 
 export default App;
