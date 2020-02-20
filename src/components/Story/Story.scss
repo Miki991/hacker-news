@@ -1,0 +1,24 @@
+.story {
+
+
+    &:not(:last-of-type) {
+        border-bottom: 1px solid orange;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .story-info {
+        font-size: 0.9rem;
+
+        .author-name {
+            color: hotpink;
+        }
+    }
+
+    button {
+        color: gray;
+        outline: none;
+    }
+}

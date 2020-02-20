@@ -1,0 +1,109 @@
+$transition-duration: 2s;
+$path-length: 157px;
+
+.loader {
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  svg {
+    overflow: visible;
+    width: 100px;
+    height: 150px;
+    
+    g {
+      -webkit-animation: slide $transition-duration linear infinite;
+      animation: slide $transition-duration linear infinite;
+      
+      &:nth-child(2) {
+        -webkit-animation-delay: $transition-duration / 4;
+                animation-delay: $transition-duration / 4;
+        
+        path {
+          -webkit-animation-delay: $transition-duration / 4;
+          animation-delay: $transition-duration / 4;
+          stroke-dasharray: 0px $path-length + 1;
+          stroke-dashoffset: 1px;
+        }
+      }
+    }
+    
+    path{
+      stroke: url(#gradient);
+      stroke-width: 20px;
+      stroke-linecap: round;
+      fill: none;
+      stroke-dasharray: 0 $path-length;
+      stroke-dashoffset: 0;
+      -webkit-animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1) infinite;
+      animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1) infinite;
+    }
+  }
+
+  h1 {
+    -webkit-animation: headingLoading 2s linear 0s infinite;
+    animation: headingLoading 1.5s linear 0s infinite;
+  }
+}
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+  }
+}
+
+@keyframes slide {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+  }
+}
+
+@-webkit-keyframes escalade {
+  0% {
+    stroke-dasharray: 0 $path-length;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: $path-length - 1 $path-length;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: $path-length - 1 $path-length;
+    stroke-dashoffset: -($path-length - 1);
+  }
+}
+
+@keyframes escalade {
+  0% {
+    stroke-dasharray: 0 $path-length;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: $path-length - 1 $path-length;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: $path-length - 1 $path-length;
+    stroke-dashoffset: -($path-length - 1);
+  }
+}
+
+@-webkit-keyframes headingLoading {
+  0% { opacity: 1 }
+  50% { opacity: .7 }
+}
+
+@keyframes headingLoading {
+  0% { opacity: 1 }
+  50% { opacity: .4 }
+}

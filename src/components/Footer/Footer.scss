@@ -1,0 +1,64 @@
+$iconMargin: 0 5px;
+$borderGray: lightgray;
+
+@mixin iconStyle($animation,$margin) {
+    -webkit-animation: $animation;
+    animation: $animation;
+    margin: $margin;
+}
+@mixin heartbeating ($scaling) {
+    -webkit-transform: $scaling; 
+    transform: $scaling;
+}
+@mixin rotating ($deg) {
+    -webkit-transform: $deg; 
+    transform: $deg
+}
+
+
+
+footer {
+    color: #6c7a89;
+    padding: 40px 0;
+    border-top: 1px solid $borderGray;
+    -webkit-box-shadow: 0 0 8px $borderGray;
+    box-shadow: 0 0 8px $borderGray;
+
+    img.heart-icon {
+        @include iconStyle(footerHeartbeat 1s linear 0s infinite, $iconMargin);
+    }
+    
+    img.react-icon {
+        @include iconStyle(footerSpinner 2s linear 0s infinite, $iconMargin);
+    }
+}
+
+@-webkit-keyframes footerHeartbeat {
+    0% { 
+        @include heartbeating(scale(1));
+    }
+    50% { 
+        @include heartbeating(scale(1.2));
+    }
+}
+
+@keyframes footerHeartbeat {
+    0% { 
+        @include heartbeating(scale(1)); 
+    }
+    50% { 
+        @include heartbeating(scale(1.2));
+    }
+}
+
+@-webkit-keyframes footerSpinner {
+    0% { 
+        @include rotating (rotate(360deg));
+    }
+}
+
+@keyframes footerSpinner {
+    0% { 
+        @include rotating (rotate(360deg));
+    }
+}

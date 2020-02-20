@@ -1,0 +1,22 @@
+.homepage {
+    .btns {
+        a {
+            margin: 0 5px;
+        }
+    }
+
+    .homepage-btn {
+        background: -o-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+        background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+        outline: none;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

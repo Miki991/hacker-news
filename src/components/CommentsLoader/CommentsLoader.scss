@@ -1,0 +1,30 @@
+$size: 40px;
+
+@mixin spinner ($rotate) {
+  -webkit-transform: $rotate;
+  transform: $rotate;
+}
+
+
+
+.comments-loader-spinner {
+  width: $size;
+  height: $size;
+  border: 3px solid lightgray;
+  border-right: none;
+  border-radius: 50%;
+  -webkit-animation: lds-spinner 1s linear 0s infinite;
+  animation: lds-spinner 1s linear 0s infinite;
+}
+
+@-webkit-keyframes lds-spinner {
+  0% {
+    @include spinner (rotate(360deg))
+  }
+}
+
+@keyframes lds-spinner {
+  0% {
+    @include spinner(rotate(360deg))
+  }
+}

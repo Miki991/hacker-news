@@ -1,0 +1,21 @@
+@mixin bckgr ($o-color, $color) {
+    background: $o-color;
+    background: $color;
+}
+
+.single-comment {
+    
+    .comment-btn {
+        @include bckgr(-o-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%), linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%));
+        color: white;
+        outline: none;
+        font-weight: bold;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        
+        &:hover {
+            background-size: 200%;
+        }
+    }
+}
